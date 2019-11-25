@@ -121,15 +121,17 @@ function showCoordinates(event) {
   var y = event.touches[0].clientY;
   document.getElementById('expLog3').innerHTML = "";
   if (Math.abs(y-btnY) < 30){
-    duration = duration + 10;
+    duration = duration + 500/(Math.abs(y-btnY));
+    navigator.vibrate(duration, duration);
     // document.getElementById('expLog3').innerHTML += "y match " + btnY + " : " + y + "\n";
   }
   if (Math.abs(x-btnX) < 30){
-    duration = duration + 10;
+    duration = duration + 500/(Math.abs(x-btnX));
+    navigator.vibrate(duration, duration);
     // document.getElementById('expLog3').innerHTML += "x match" + btnX + " : " + x + "\n";
   }
   if (((Math.abs(y-btnY) < 30)) && (Math.abs(x-btnX) < 30)){
-    duration = 40;
+    navigator.vibrate(150, 300, 150);
     // document.getElementById('expLog3').innerHTML = "Both match";
   }
 
